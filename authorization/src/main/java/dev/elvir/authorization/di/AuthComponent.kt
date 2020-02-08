@@ -18,5 +18,4 @@ interface AuthApi
 @AuthScope
 interface AuthComponent : AuthApi {
     fun inject(signInActivity: SignInActivity)
-    fun helloWorld():String
 }

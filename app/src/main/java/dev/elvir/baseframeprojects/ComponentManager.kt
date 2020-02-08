@@ -1,6 +1,5 @@
 package dev.elvir.baseframeprojects
 
-import dev.elvir.authorization.ComponentManager
 import dev.elvir.baseframeprojects.di.AppComponent
 import dev.elvir.baseframeprojects.di.DaggerAppComponent
 
@@ -17,7 +16,10 @@ class ComponentManager {
      * @param lazy initialization  module managers
      */
     private val authComponentManager by lazy {
-        ComponentManager
+        dev.elvir.authorization.ComponentManager
+    }
+    private val chatComponentManager by lazy {
+        dev.elvir.chat.ComponentManager
     }
 
     /**
@@ -31,8 +33,7 @@ class ComponentManager {
     fun plusAppComponent(): AppComponent = DaggerAppComponent
         .builder()
         .authApi(authComponentManager.plusAuthComponent())
-        .build().also {
-            appComponent = it
-        }
+        .chatApi(chatComponentManager.plusChatComponent())
+        .build().also { appComponent = it }
 
 }
