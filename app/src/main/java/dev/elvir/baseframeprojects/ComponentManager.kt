@@ -32,8 +32,8 @@ class ComponentManager {
      */
     fun plusAppComponent(): AppComponent = DaggerAppComponent
         .builder()
-        .authApi(authComponentManager.plusAuthComponent())
         .chatApi(chatComponentManager.plusChatComponent())
+        .authApi(authComponentManager.plusAuthComponent())
         .build().also { appComponent = it }
 
 }

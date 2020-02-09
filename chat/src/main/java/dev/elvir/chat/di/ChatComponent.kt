@@ -8,7 +8,9 @@ import javax.inject.Scope
 @Retention(AnnotationRetention.RUNTIME)
 annotation class ChatScope
 
-interface ChatApi
+interface ChatApi{
+    fun provideChatRepository():ChatRepository
+}
 
 @Component(
     modules = [
@@ -19,5 +21,4 @@ interface ChatApi
 interface ChatComponent : ChatApi {
 
     fun inject(chatActivity: ChatActivity)
-
 }
