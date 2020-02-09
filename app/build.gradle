@@ -42,5 +42,4 @@ dependencies {
     implementation project(':core')
     implementation project(':authorization')
     implementation project(':chat')
-
 }

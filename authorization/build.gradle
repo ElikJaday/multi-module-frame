@@ -44,4 +44,5 @@ dependencies {
     implementation "com.google.dagger:dagger:$dagger_version"
     //core module
     implementation project(':core')
+    implementation project(':chat')
 }

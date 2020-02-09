@@ -5,6 +5,9 @@ import dagger.Provides
 
 @Module
 class AuthModule {
+
     @Provides
-    fun provideHelloWorld() = "Hello word ! ! ! "
+    @AuthScope
+    fun provideAuthString(): String = "Helloo auth"
+
 }

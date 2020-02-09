@@ -2,6 +2,7 @@ package dev.elvir.authorization.di
 
 import dagger.Component
 import dev.elvir.authorization.ui.SignInActivity
+import dev.elvir.chat.di.ChatApi
 import javax.inject.Scope
 
 @Scope
@@ -13,9 +14,13 @@ interface AuthApi
 @Component(
     modules = [
         AuthModule::class
+    ],
+    dependencies = [
+        ChatApi::class
     ]
 )
 @AuthScope
 interface AuthComponent : AuthApi {
     fun inject(signInActivity: SignInActivity)
+
 }
