@@ -4,8 +4,6 @@ import android.content.Context
 import dev.elvir.baseframeprojects.di.AppComponent
 import dev.elvir.baseframeprojects.di.DaggerAppComponent
 import dev.elvir.core.di.CoreComponent
-import dev.elvir.core.di.DaggerCoreComponent
-import dev.elvir.core.di.module.CoreModule
 
 /**
  * @author Elvir
@@ -26,7 +24,9 @@ class ComponentManager {
         dev.elvir.authorization.ComponentManager
     }
     private val chatComponentManager by lazy {
-        dev.elvir.chat.ComponentManager
+        dev.elvir.chat.ComponentManager.apply {
+            injectCoreComponentManager(coreComponentManager)
+        }
     }
 
     /**
@@ -38,22 +38,22 @@ class ComponentManager {
     /**
      * @param main component builder with module components API
      */
-    fun plusAppComponent(): AppComponent {
-
-     return  DaggerAppComponent
-            .builder()
-            .chatApi(chatComponentManager.plusChatComponent())
-            .authApi(authComponentManager.plusAuthComponent())
-            .build().also { appComponent = it }
-
+    fun generateMainComponents(context: Context) {
+        plusCoreComponent(context)
+        plusAppComponent()
     }
+
+    private fun plusAppComponent(): AppComponent = DaggerAppComponent
+        .builder()
+        .chatApi(chatComponentManager.plusChatComponent())
+        .authApi(authComponentManager.plusAuthComponent())
+        .build().also { appComponent = it }
 
     fun plusCoreComponent(
         context: Context
-    ): CoreComponent = DaggerCoreComponent
-        .builder()
-        .coreModule(CoreModule(context))
-        .build()
-        .also { coreComponent = it }
+    ): CoreComponent =
+        coreComponentManager
+            .plusCoreComponent(context)
+            .also { coreComponent = it }
 
 }

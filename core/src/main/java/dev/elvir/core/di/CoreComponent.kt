@@ -1,7 +1,9 @@
 package dev.elvir.core.di
 
+import android.content.Context
 import dagger.Component
 import dev.elvir.core.di.module.CoreModule
+import dev.elvir.core.di.module.HttpClient
 import dev.elvir.core.di.module.NetworModule
 import javax.inject.Scope
 
@@ -9,7 +11,13 @@ import javax.inject.Scope
 @Retention(AnnotationRetention.RUNTIME)
 annotation class CoreScope
 
-interface CoreApi
+interface CoreAndroidApi{
+    fun provideContext():Context
+}
+
+interface CoreNetworkApi{
+    fun provideHttpClient():HttpClient
+}
 
 @Component(
     modules = [
@@ -18,6 +26,6 @@ interface CoreApi
     ]
 )
 @CoreScope
-interface CoreComponent : CoreApi {
+interface CoreComponent : CoreAndroidApi,CoreNetworkApi {
 
 }

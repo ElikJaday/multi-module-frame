@@ -13,6 +13,6 @@ class MainApplication : Application() {
     }
 
     private fun createMainComponentManager(): ComponentManager =
-        ComponentManager().apply { plusAppComponent() }
+        ComponentManager().apply { generateMainComponents(this@MainApplication) }
 
 }

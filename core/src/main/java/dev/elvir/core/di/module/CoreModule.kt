@@ -11,7 +11,6 @@ class CoreModule(
 ){
 
     @Provides
-    @Singleton
     fun getContext() = context
 
 }
