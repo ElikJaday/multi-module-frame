@@ -25,7 +25,7 @@ class ComponentManager {
     }
     private val chatComponentManager by lazy {
         dev.elvir.chat.ComponentManager.apply {
-            injectCoreComponentManager(coreComponentManager)
+            injectCoreComponentManager(this@ComponentManager.coreComponentManager)
         }
     }
 
