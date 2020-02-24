@@ -1,10 +1,9 @@
 package dev.elvir.baseframeprojects.di
 
 import dagger.Component
-import dev.elvir.authorization.di.AuthApi
 import dev.elvir.baseframeprojects.MainApplication
-import dev.elvir.chat_api.api.ChatApi
 import javax.inject.Scope
+
 
 @Scope
 @Retention(AnnotationRetention.RUNTIME)
@@ -15,8 +14,7 @@ annotation class AppScope
         AppModule::class
     ],
     dependencies = [
-        AuthApi::class,
-        ChatApi::class
+
     ]
 )
 @AppScope

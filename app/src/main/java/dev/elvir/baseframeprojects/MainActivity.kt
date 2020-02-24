@@ -2,7 +2,6 @@ package dev.elvir.baseframeprojects
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import dev.elvir.baseframeprojects.R
 
 
 class MainActivity : AppCompatActivity() {

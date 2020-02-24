@@ -9,10 +9,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/authorization" />
-            <option value="$PROJECT_DIR$/authorization_api" />
-            <option value="$PROJECT_DIR$/chat" />
-            <option value="$PROJECT_DIR$/chat_api" />
             <option value="$PROJECT_DIR$/core" />
           </set>
         </option>

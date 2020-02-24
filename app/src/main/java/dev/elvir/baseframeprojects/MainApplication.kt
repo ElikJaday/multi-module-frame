@@ -18,7 +18,6 @@ class MainApplication : Application(),FeatureManager {
 
     override fun <T> getDependency(key: Class<T>?): T {
         when(key){
-            key is
             else-> throw  RuntimeException(" feature not found")
         }
     }
