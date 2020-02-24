@@ -2,6 +2,7 @@ package dev.elvir.chat
 
 import dev.elvir.chat.di.ChatComponent
 import dev.elvir.chat.di.DaggerChatComponent
+import dev.elvir.chat_api.api.ChatApi
 import dev.elvir.core.ComponentManager
 
 object ComponentManager {
@@ -13,7 +14,7 @@ object ComponentManager {
         coreComponentManager = componentManager
     }
 
-    fun plusChatComponent(): ChatComponent =
+    fun plusChatComponent(): ChatApi =
         chatComponent ?: DaggerChatComponent
             .builder()
             .build()

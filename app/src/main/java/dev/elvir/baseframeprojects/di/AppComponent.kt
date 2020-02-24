@@ -3,7 +3,7 @@ package dev.elvir.baseframeprojects.di
 import dagger.Component
 import dev.elvir.authorization.di.AuthApi
 import dev.elvir.baseframeprojects.MainApplication
-import dev.elvir.chat.di.ChatApi
+import dev.elvir.chat_api.api.ChatApi
 import javax.inject.Scope
 
 @Scope

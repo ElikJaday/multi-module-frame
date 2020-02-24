@@ -42,4 +42,5 @@ dependencies {
     implementation project(':core')
     implementation project(':authorization')
     implementation project(':chat')
+    implementation project(':chat_api')
 }

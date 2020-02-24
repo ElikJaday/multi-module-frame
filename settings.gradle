@@ -1,2 +1,2 @@
-include ':app', ':core', ':authorization', ':chat', ':authorization_api'
+include ':app', ':core', ':authorization', ':chat', ':authorization_api', ':chat_api'
 rootProject.name='BaseFrameProjects'
