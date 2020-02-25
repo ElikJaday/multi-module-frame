@@ -3,6 +3,7 @@ package dev.elvir.support_impl.di
 import dagger.Component
 import dagger.Module
 import dagger.Provides
+import dev.elvir.auth_api.AuthApi
 import dev.elvir.support_api.SupportApi
 import dev.elvir.support_api.SupportRouter
 import dev.elvir.support_impl.router.SupporRouterImpl
@@ -19,12 +20,18 @@ annotation class SupportScope
         SupportModule::class
     ],
     dependencies = [
-
+        Dependencies::class
     ]
 )
 @SupportScope
 interface SupportComponent : SupportApi {
     fun inject(supportActivity: SupportActivity)
+    @SupportScope
+    @Component(
+        dependencies = [
+            AuthApi::class]
+    )
+    interface SupportDependenciesComponent : Dependencies
 }
 
 
@@ -33,5 +40,9 @@ class SupportModule {
     @Provides
     @SupportScope
     fun provideSupportRouter(): SupportRouter = SupporRouterImpl()
+
+}
+
+interface Dependencies {
 
 }
