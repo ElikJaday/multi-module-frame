@@ -19,5 +19,5 @@ annotation class AppScope
 )
 @AppScope
 interface AppComponent {
-    fun inject(application: MainApplication)
+
 }

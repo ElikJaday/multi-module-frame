@@ -1,9 +1,9 @@
 package dev.elvir.baseframeprojects
 
 import android.app.Application
-import dev.elvir.core.di.feature_reuse_di.FeatureManager
 
-class MainApplication : Application(),FeatureManager {
+class MainApplication : Application(), dev.elvir.core.feature_component.ComponentManager {
+
     lateinit var componentManager: ComponentManager
 
     override fun onCreate() {
@@ -13,14 +13,13 @@ class MainApplication : Application(),FeatureManager {
         }
     }
 
+    override fun <T> getDependency(key: Class<T>): T =
+        componentManager.componentBuilder(key, this)
+
+
     private fun createMainComponentManager(): ComponentManager =
-        ComponentManager().apply { generateMainComponents(this@MainApplication) }
-
-    override fun <T> getDependency(key: Class<T>?): T {
-        when(key){
-            else-> throw  RuntimeException(" feature not found")
-        }
-    }
-
+        ComponentManager()
+            .apply { plusAppComponent() }
+            .also { componentManager = it }
 
 }

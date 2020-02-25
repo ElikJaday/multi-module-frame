@@ -1,2 +1,2 @@
-include ':app', ':core'
+include ':app', ':core', ':auth_api', ':auth_impl', ':support_api', ':support_impl'
 rootProject.name='BaseFrameProjects'

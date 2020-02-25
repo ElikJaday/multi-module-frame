@@ -39,5 +39,9 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
     implementation "com.google.dagger:dagger:$dagger_version"
     //feature modules
-
+    implementation project(':core')
+    implementation project(':auth_api')
+    implementation project(':auth_impl')
+    implementation project(':support_api')
+    implementation project(':support_impl')
 }
