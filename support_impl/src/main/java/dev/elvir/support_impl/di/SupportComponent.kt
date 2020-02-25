@@ -18,20 +18,13 @@ annotation class SupportScope
 @Component(
     modules = [
         SupportModule::class
-    ],
-    dependencies = [
-        Dependencies::class
     ]
 )
 @SupportScope
 interface SupportComponent : SupportApi {
+
     fun inject(supportActivity: SupportActivity)
-    @SupportScope
-    @Component(
-        dependencies = [
-            AuthApi::class]
-    )
-    interface SupportDependenciesComponent : Dependencies
+
 }
 
 

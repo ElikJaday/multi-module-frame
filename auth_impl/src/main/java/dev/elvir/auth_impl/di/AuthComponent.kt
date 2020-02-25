@@ -18,21 +18,11 @@ annotation class AuthScope
 @Component(
     modules = [
         AuthModule::class
-    ],
-    dependencies = [
-        Dependencies::class
     ]
 )
 @AuthScope
 interface AuthComponent : AuthApi {
     fun inject(authActivity: AuthActivity)
-
-    @Component(
-        dependencies = [
-            SupportApi::class]
-    )
-    @AuthScope
-    interface AuthDependenciesComponent : Dependencies
 }
 
 
