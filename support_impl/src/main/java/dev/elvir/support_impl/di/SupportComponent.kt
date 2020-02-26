@@ -22,9 +22,16 @@ annotation class SupportScope
 )
 @SupportScope
 interface SupportComponent : SupportApi {
-
-    fun inject(supportActivity: SupportActivity)
-
+    @Component(
+        dependencies = [
+            AuthApi::class,
+            SupportApi::class
+        ]
+    )
+    @SupportScope
+    interface SupportInnerComponent {
+        fun inject(supportActivity: SupportActivity)
+    }
 }
 
 

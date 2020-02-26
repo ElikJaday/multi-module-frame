@@ -22,7 +22,18 @@ annotation class AuthScope
 )
 @AuthScope
 interface AuthComponent : AuthApi {
-    fun inject(authActivity: AuthActivity)
+
+    @Component(
+        dependencies = [
+            SupportApi::class,
+            AuthApi::class]
+    )
+    @AuthScope
+    interface AuthInnerComponent {
+        fun inject(authActivity: AuthActivity)
+
+    }
+
 }
 
 
@@ -33,7 +44,3 @@ class AuthModule {
     fun proideAuthRouter(): AuthRouter = AuthRouterImpl()
 }
 
-
-interface Dependencies {
-
-}
